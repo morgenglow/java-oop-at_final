@@ -9,10 +9,6 @@ public class Wall implements Obstacles {
         this.width = width;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
     public void check(Runner runner) {
         runner.run();
         runner.setSuccess(runner.getMaxWeight() >= width);

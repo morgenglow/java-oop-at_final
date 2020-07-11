@@ -5,6 +5,7 @@ import ru.geekbrains.java.oop.at.obstacles.Treadmill;
 import ru.geekbrains.java.oop.at.obstacles.Wall;
 import ru.geekbrains.java.oop.at.participants.Cat;
 import ru.geekbrains.java.oop.at.participants.Human;
+import ru.geekbrains.java.oop.at.participants.Robot;
 import ru.geekbrains.java.oop.at.participants.Runner;
 
 public class Start {
@@ -17,9 +18,9 @@ public class Start {
         Runner humanAnna = new Human("Anna", 10, 2);
         Runner humanAlex = new Human("Alex", 18, 6);
 
-        Runner robotVally = new Human("Vally", 13, 4);
-        Runner robotEva = new Human("Eva", 10, 2);
-        Runner robotBender = new Human("Bender", 18, 6);
+        Runner robotVally = new Robot("Vally", 13, 4);
+        Runner robotEva = new Robot("Eva", 10, 2);
+        Runner robotBender = new Robot("Bender", 18, 6);
 
         Runner[] runners = {catTom, catLarry, catBoris, humanMax, humanAnna, humanAlex, robotVally, robotEva, robotBender};
 

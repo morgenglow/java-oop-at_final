@@ -5,7 +5,7 @@ public class Cat implements Runner {
     private String name;
     private int maxLength;
     private int maxWeight;
-    private boolean success =true;
+    private boolean success = true;
 
     public Cat(String name, int maxLength, int maxWeight) {
         this.name = name;
@@ -14,7 +14,7 @@ public class Cat implements Runner {
     }
 
     public void run() {
-        System.out.println(name +" бежит максимум: " + maxLength);
+        System.out.println(name + " бежит максимум: " + maxLength);
     }
 
     public void jump() {

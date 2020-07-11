@@ -4,7 +4,7 @@ public class Robot implements Runner {
     private String name;
     private int maxLength;
     private int maxWeight;
-    private boolean success =true;
+    private boolean success = true;
 
     public Robot(String name, int maxLength, int maxWeight) {
         this.name = name;
@@ -13,7 +13,7 @@ public class Robot implements Runner {
     }
 
     public void run() {
-        System.out.println(name +" бежит максимум: " + maxLength);
+        System.out.println(name + " бежит максимум: " + maxLength);
     }
 
     public void jump() {
