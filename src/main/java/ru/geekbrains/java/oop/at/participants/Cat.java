@@ -18,7 +18,7 @@ public class Cat implements Runner {
     }
 
     public void jump() {
-        System.out.println(name + " прыгает максимум: " + maxLength);
+        System.out.println(name + " прыгает максимум: " + maxWeight);
     }
 
     public String getName() {

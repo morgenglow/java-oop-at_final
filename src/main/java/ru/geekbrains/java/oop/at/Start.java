@@ -28,6 +28,7 @@ public class Start {
         Obstacles wall = new Wall(5);
         Obstacles wall1 = new Wall(6);
         Obstacles wall2 = new Wall(7);
+
         Obstacles treadmill = new Treadmill(10);
         Obstacles treadmill1 = new Treadmill(14);
         Obstacles treadmill2 = new Treadmill(15);
