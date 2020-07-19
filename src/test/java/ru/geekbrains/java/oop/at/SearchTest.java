@@ -66,6 +66,7 @@ public class SearchTest extends BaseTest {
         Assertions.assertTrue((Integer.parseInt(testsCount.getText())) != 0, "Количество найденных тестов равно 0!");
 
         Assertions.assertEquals("Java Junior. Что нужно знать для успешного собеседования?", eventsList.get(0).getText());
+
         Assertions.assertNotNull(gbCompany, "В Проектах и компаниях не отображается GeekBrains");
 
     }
