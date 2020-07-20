@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import ru.geekbrains.java.oop.at.base.BaseTest;
+import ru.geekbrains.java.oop.at.base.BaseWebTest;
 
 import java.util.List;
 
-public class SearchTest extends BaseTest {
+public class SearchWebTest extends BaseWebTest {
 
 //    Перейти на сайт https://geekbrains.ru/events
 //    Нажать на кнопку Поиск
