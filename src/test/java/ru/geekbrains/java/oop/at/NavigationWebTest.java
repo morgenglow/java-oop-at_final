@@ -2,12 +2,19 @@ package ru.geekbrains.java.oop.at;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.geekbrains.java.oop.at.base.BaseWebTest;
 
+import java.util.stream.Stream;
+
+@DisplayName("Навигация")
 public class NavigationWebTest extends BaseWebTest {
 
 //    Перейти на сайт https://geekbrains.ru/events
@@ -24,8 +31,8 @@ public class NavigationWebTest extends BaseWebTest {
 
     @AfterEach
     void tearDown() {
-        WebElement header = chromeDriver.findElementByCssSelector("[class*=\"gb-header__content\"]");
-        WebElement footer = chromeDriver.findElementByCssSelector("[class=\"site-footer__content\"]");
+        WebElement header = driver.findElement(By.cssSelector("[class*=\"gb-header__content\"]"));
+        WebElement footer = driver.findElement(By.cssSelector("[class=\"site-footer__content\"]"));
 
         wait15second.until(ExpectedConditions.visibilityOf(
                 header));
@@ -33,62 +40,40 @@ public class NavigationWebTest extends BaseWebTest {
                 footer));
     }
 
-    @Test
-    public void topics() {
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/topics\"]")).click();
-        Assertions.assertEquals(
-                "Форум",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
-        );
-    }
-
-    @Test
-    public void events() {
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/events\"]")).click();
-        Assertions.assertEquals(
-                "Вебинары",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
-        );
-    }
-
+    @DisplayName("Блог")
     @Test
     public void posts() {
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/posts\"]")).click();
+        driver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/posts\"]")).click();
 
-        chromeDriver.findElement(By.cssSelector("[class=\"gb-empopup-close\"]")).click();
-        chromeDriver.findElement(By.cssSelector("button [class=\"svg-icon icon-popup-close-button \"]")).click();
+        driver.findElement(By.cssSelector("[class=\"gb-empopup-close\"]")).click();
+        driver.findElement(By.cssSelector("button [class=\"svg-icon icon-popup-close-button \"]")).click();
 
         Assertions.assertEquals(
                 "Блог",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
+                driver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
         );
     }
 
-    @Test
-    public void tests() {
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/tests\"]")).click();
-
+    @DisplayName("Нажатие на элемент навигации")
+    @ParameterizedTest
+    @MethodSource("dataProvider")
+    public void courses(String namePage, String valueHref) {
+        driver.findElement(By.cssSelector("[id=\"nav\"] [href='/" + valueHref + "']")).click();
         Assertions.assertEquals(
-                "Тесты",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
+                namePage,
+                driver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
         );
     }
 
-    @Test
-    public void career() {
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/career\"]")).click();
-        Assertions.assertEquals(
-                "Карьера",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
+    public static Stream<Arguments> dataProvider() {
+        return Stream.of(
+                Arguments.of("Форум", "topics"),
+                Arguments.of("Вебинары", "events"),
+                Arguments.of("Тесты", "tests"),
+                Arguments.of("Карьера", "career")
+//                Arguments.of("Курсы", "courses")
         );
     }
 
-    @Test
-    public void courses() {
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/courses\"]")).click();
-        Assertions.assertEquals(
-                "Курсы",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
-        );
-    }
+
 }
