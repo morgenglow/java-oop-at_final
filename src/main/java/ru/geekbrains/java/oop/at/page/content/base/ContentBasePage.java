@@ -48,6 +48,7 @@ public abstract class ContentBasePage extends BasePageObject implements OpenUrl 
      * Адаптер над объектом HeaderBlock
      * После работы с методом HeaderBlock#checkNamePage(String) сайт остается на тойже странице
      */
+    //TODO рассказать про адаптер
     public ContentBasePage checkNamePage(String exampleNamePage) {
         headerBlock.checkNamePage(exampleNamePage);
         return this;
