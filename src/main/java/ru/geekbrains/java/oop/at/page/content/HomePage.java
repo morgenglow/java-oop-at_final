@@ -8,6 +8,7 @@ public class HomePage extends ContentBasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
+        //TODO вынести в наследование
         PageFactory.initElements(driver, this);
     }
 

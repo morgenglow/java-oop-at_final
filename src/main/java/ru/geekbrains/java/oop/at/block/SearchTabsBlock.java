@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.java.oop.at.BasePageObject;
+import ru.geekbrains.java.oop.at.ButtonNotFoundException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -39,9 +40,11 @@ public class SearchTabsBlock extends BasePageObject {
 
     public SearchTabsBlock(WebDriver driver) {
         super(driver);
+        //TODO вынести в наследование
         PageFactory.initElements(driver, this);
     }
 
+    //TODO Step
     public void clickTab(Tab tab) {
         getTab(tab).click();
     }
@@ -72,16 +75,19 @@ public class SearchTabsBlock extends BasePageObject {
             case COMPANIES:
                 return tabCompanies;
             default:
-                throw new IllegalStateException("Unexpected value: " + tab);
+                throw new ButtonNotFoundException("Unexpected value: " + tab);
         }
     }
 
 
-//    Enum —  класс. Но он специально «заточен» на решение задач: создание некоторого ограниченного круга значений.
-//    Список который имеет ограниченного, неизменяемый набор значений
-//    В нашем случае позволяет определив в одном месте, использовать этот список везде в проекте.
-//    И не дать возможность пользователю ошибится с названием кнопки
+//    Enum —  класс. Список который имеет ограниченный, неизменяемый набор значений
+//    Он специально «заточен» на решение задач:
+//      создание некоторого ограниченного круга значений.
 
+//    В нашем случае позволяет определив в одном месте, использовать этот список везде в проекте.
+//    И не дать возможность пользователю допустить ошибку с названием кнопки
+
+    //TODO рассказать про Enum
     public enum Tab {
         EVERYWHERE("Везде"),
         PROFESSIONS("Профессии"),

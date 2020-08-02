@@ -9,7 +9,7 @@ import ru.geekbrains.java.oop.at.block.ContentNavigationCourseBlock;
 import ru.geekbrains.java.oop.at.page.content.base.ContentBasePage;
 
 import java.util.List;
-
+//TODO добавить lombok
 public class CoursePage extends ContentBasePage {
 
     private ContentNavigationCourseBlock contentNavigationCourseBlock;
@@ -23,6 +23,7 @@ public class CoursePage extends ContentBasePage {
     public CoursePage(WebDriver driver) {
         super(driver);
         this.contentNavigationCourseBlock = new ContentNavigationCourseBlock(driver);
+        //TODO вынести в наследование
         PageFactory.initElements(driver, this);
     }
 
@@ -34,6 +35,7 @@ public class CoursePage extends ContentBasePage {
         return this;
     }
 
+    //TODO Step
     public CoursePage checkingDisplayedCourses(String... args) {
         for (String test : args) {
             WebElement element = findElement(courseList, test);

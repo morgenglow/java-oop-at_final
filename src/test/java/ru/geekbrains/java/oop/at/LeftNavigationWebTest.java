@@ -19,8 +19,17 @@ import static ru.geekbrains.java.oop.at.block.LeftNavigation.Button;
 @DisplayName("Переход на страницы")
 public class LeftNavigationWebTest extends BeforeAndAfterStep {
 
+    public static Stream<Button> stringProviderNotPopUp() {
+        return Stream.of(
+                Button.TOPICS,
+                Button.EVENTS,
+                Button.TESTS,
+                Button.CAREER
+        );
+    }
+
     @Description("Тесты которые проверяют функционал без Pop-UP")
-    @DisplayName("Нажатие на элемент навагации")
+    @DisplayName("Нажатие на элемент навигации")
     @ParameterizedTest(name = "{index} => Нажатие на: {0}")
     @MethodSource("stringProviderNotPopUp")
     public void checkNavigationNotPopUp(Button button) {
@@ -31,16 +40,8 @@ public class LeftNavigationWebTest extends BeforeAndAfterStep {
     }
 
 
-    public static Stream<Button> stringProviderNotPopUp() {
-        return Stream.of(
-                Button.TOPICS,
-                Button.EVENTS,
-                Button.TESTS,
-                Button.CAREER
-        );
-    }
-
     @Test
+    @DisplayName("Нажатие на элемент навигации")
     public void checkNavigationPopUp() {
         new TestPage(driver)
                 .openUrl()

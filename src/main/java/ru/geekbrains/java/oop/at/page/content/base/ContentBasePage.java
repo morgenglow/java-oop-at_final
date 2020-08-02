@@ -1,5 +1,6 @@
 package ru.geekbrains.java.oop.at.page.content.base;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,9 +23,11 @@ public abstract class ContentBasePage extends BasePageObject implements OpenUrl 
         super(driver);
         this.headerBlock = new HeaderBlock(driver);
         this.leftNavigation = new LeftNavigation(driver);
+        //TODO вынести в наследование
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Закрытие Pop-UP")
     public ContentBasePage closedPopUp() {
         wait10second.until(ExpectedConditions.visibilityOf(buttonPopUpClosed));
         if (buttonPopUpClosed.isDisplayed()) {

@@ -19,6 +19,8 @@ public abstract class BasePageObject {
         this.wait30second = new WebDriverWait(driver, 30);
     }
 
+    //TODO Step
+    //TODO рассказать про применение List<WebElement> list
     protected WebElement findElement(List<WebElement> list, String expectedText) {
         List<Object> arrayList = new ArrayList<>();
         for (WebElement webElement : list) {
@@ -28,7 +30,7 @@ public abstract class BasePageObject {
                 return webElement;
             }
         }
-        throw new RuntimeException("В коллекции элементов: " + arrayList + "\nНе найден элемент с тектом: " + expectedText);
+        throw new RuntimeException("В коллекции элементов: " + arrayList + "\nНе найден элемент с текстом: " + expectedText);
     }
 
 }
