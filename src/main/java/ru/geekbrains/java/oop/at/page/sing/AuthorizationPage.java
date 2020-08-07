@@ -22,8 +22,6 @@ public class AuthorizationPage extends BasePageObject implements OpenUrl {
 
     public AuthorizationPage(WebDriver driver) {
         super(driver);
-        //TODO вынести в наследование
-        PageFactory.initElements(driver, this);
     }
 
     @Step("авторизация пользователем c логин: {login} пароль: {password}")
@@ -34,7 +32,6 @@ public class AuthorizationPage extends BasePageObject implements OpenUrl {
         return new HomePage(driver);
     }
 
-    //TODO вынести в абстрактный класс
     @Override
     public AuthorizationPage openUrl() {
         driver.get("https://geekbrains.ru/login");

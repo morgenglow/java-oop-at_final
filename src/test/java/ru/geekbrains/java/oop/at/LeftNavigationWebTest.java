@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import ru.geekbrains.java.oop.at.base.BeforeAndAfterStep;
-import ru.geekbrains.java.oop.at.page.content.TestPage;
+import ru.geekbrains.java.oop.at.page.content.TestsPage;
 
 import java.util.stream.Stream;
 
@@ -33,7 +33,7 @@ public class LeftNavigationWebTest extends BeforeAndAfterStep {
     @ParameterizedTest(name = "{index} => Нажатие на: {0}")
     @MethodSource("stringProviderNotPopUp")
     public void checkNavigationNotPopUp(Button button) {
-        new TestPage(driver)
+        new TestsPage(driver)
                 .openUrl()
                 .getLeftNavigation().clickButton(button)
                 .getHeader().checkNamePage(button.getText());
@@ -43,7 +43,7 @@ public class LeftNavigationWebTest extends BeforeAndAfterStep {
     @Test
     @DisplayName("Нажатие на элемент навигации")
     public void checkNavigationPopUp() {
-        new TestPage(driver)
+        new TestsPage(driver)
                 .openUrl()
                 .getLeftNavigation().clickButton(Button.POSTS)
                 .closedPopUp()

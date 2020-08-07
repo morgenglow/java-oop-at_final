@@ -40,11 +40,8 @@ public class SearchTabsBlock extends BasePageObject {
 
     public SearchTabsBlock(WebDriver driver) {
         super(driver);
-        //TODO вынести в наследование
-        PageFactory.initElements(driver, this);
     }
 
-    //TODO Step
     public void clickTab(Tab tab) {
         getTab(tab).click();
     }
@@ -79,15 +76,6 @@ public class SearchTabsBlock extends BasePageObject {
         }
     }
 
-
-//    Enum —  класс. Список который имеет ограниченный, неизменяемый набор значений
-//    Он специально «заточен» на решение задач:
-//      создание некоторого ограниченного круга значений.
-
-//    В нашем случае позволяет определив в одном месте, использовать этот список везде в проекте.
-//    И не дать возможность пользователю допустить ошибку с названием кнопки
-
-    //TODO рассказать про Enum
     public enum Tab {
         EVERYWHERE("Везде"),
         PROFESSIONS("Профессии"),

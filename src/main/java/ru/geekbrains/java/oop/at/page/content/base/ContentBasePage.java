@@ -23,8 +23,6 @@ public abstract class ContentBasePage extends BasePageObject implements OpenUrl 
         super(driver);
         this.headerBlock = new HeaderBlock(driver);
         this.leftNavigation = new LeftNavigation(driver);
-        //TODO вынести в наследование
-        PageFactory.initElements(driver, this);
     }
 
     @Step("Закрытие Pop-UP")
@@ -48,7 +46,6 @@ public abstract class ContentBasePage extends BasePageObject implements OpenUrl 
      * Адаптер над объектом HeaderBlock
      * После работы с методом HeaderBlock#checkNamePage(String) сайт остается на тойже странице
      */
-    //TODO рассказать про адаптер
     public ContentBasePage checkNamePage(String exampleNamePage) {
         headerBlock.checkNamePage(exampleNamePage);
         return this;

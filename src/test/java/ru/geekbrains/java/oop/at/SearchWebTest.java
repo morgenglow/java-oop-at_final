@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.java.oop.at.base.BeforeAndAfterStep;
 import ru.geekbrains.java.oop.at.block.SearchTabsBlock;
-import ru.geekbrains.java.oop.at.page.content.TestPage;
+import ru.geekbrains.java.oop.at.page.content.TestsPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +27,7 @@ public class SearchWebTest extends BeforeAndAfterStep {
     @DisplayName("Проверка количества контента")
     @Test
     void searchTest() {
-        new TestPage(driver)
+        new TestsPage(driver)
                 .openUrl()
                 .getHeader()
                 .searchText("java")

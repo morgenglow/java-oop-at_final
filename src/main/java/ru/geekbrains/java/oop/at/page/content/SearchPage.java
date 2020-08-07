@@ -10,8 +10,6 @@ public class SearchPage extends ContentBasePage {
 
     public SearchPage(WebDriver driver) {
         super(driver);
-        //TODO вынести в наследование
-        this.searchTabsBlock = new SearchTabsBlock(driver);
     }
 
     @Override

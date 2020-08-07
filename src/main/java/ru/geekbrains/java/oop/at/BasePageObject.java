@@ -2,6 +2,7 @@ package ru.geekbrains.java.oop.at;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
@@ -15,12 +16,11 @@ public abstract class BasePageObject {
 
     public BasePageObject(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
         this.wait10second = new WebDriverWait(driver, 10);
         this.wait30second = new WebDriverWait(driver, 30);
     }
 
-    //TODO Step
-    //TODO рассказать про применение List<WebElement> list
     protected WebElement findElement(List<WebElement> list, String expectedText) {
         List<Object> arrayList = new ArrayList<>();
         for (WebElement webElement : list) {

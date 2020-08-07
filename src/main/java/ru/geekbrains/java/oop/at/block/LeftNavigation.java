@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import ru.geekbrains.java.oop.at.BasePageObject;
-import ru.geekbrains.java.oop.at.page.content.CoursePage;
-import ru.geekbrains.java.oop.at.page.content.HomePage;
-import ru.geekbrains.java.oop.at.page.content.TestPage;
+import ru.geekbrains.java.oop.at.page.content.*;
 import ru.geekbrains.java.oop.at.page.content.base.ContentBasePage;
 
 public class LeftNavigation extends BasePageObject {
@@ -36,8 +34,6 @@ public class LeftNavigation extends BasePageObject {
 
     public LeftNavigation(WebDriver driver) {
         super(driver);
-        //TODO вынести в наследование
-        PageFactory.initElements(driver, this);
     }
 
     @Step("Нажатие кнопки {button}")
@@ -54,24 +50,24 @@ public class LeftNavigation extends BasePageObject {
                 contentBasePage = new CoursePage(driver);
                 break;
             case EVENTS:
-                //TODO доработать под другие кнопки
                 buttonEvents.click();
+                contentBasePage = new EventsPage(driver);
                 break;
             case TOPICS:
-                //TODO доработать под другие кнопки
                 buttonTopics.click();
+                contentBasePage = new TopicsPage(driver);
                 break;
             case POSTS:
-                //TODO доработать под другие кнопки
                 buttonPosts.click();
+                contentBasePage = new PostsPage(driver);
                 break;
             case TESTS:
                 buttonTests.click();
-                contentBasePage = new TestPage(driver);
+                contentBasePage = new TestsPage(driver);
                 break;
             case CAREER:
-                //TODO доработать под другие кнопки
                 buttonCareer.click();
+                contentBasePage = new CareerPage(driver);
                 break;
         }
         if (contentBasePage == null) {
@@ -79,14 +75,6 @@ public class LeftNavigation extends BasePageObject {
         }
         return contentBasePage;
     }
-
-
-//    Enum —  класс. Список который имеет ограниченный, неизменяемый набор значений
-//    Но он специально «заточен» на решение задач:
-//      создание некоторого ограниченного круга значений.
-
-//    В нашем случае позволяет определив в одном месте, использовать этот список везде в проекте.
-//    И не дать возможность пользователю допустить ошибку с названием кнопки
 
     public enum Button {
         ICON("Главная"),

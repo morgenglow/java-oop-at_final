@@ -35,4 +35,21 @@ public class CourseWebTest extends BeforeAndAfterStep {
         ;
 
     }
+
+    @DisplayName("Проверка работы фильтров для вкладки с интенсивами")
+    @Test
+    void checkCareerClick() {
+        CoursePage coursePage = ((CoursePage)
+                new CoursePage(driver)
+                        .openUrl()
+                        .closedPopUp()
+                        .getLeftNavigation()
+                        .clickButton(LeftNavigation.Button.COURSES)
+        );
+
+
+        coursePage.getContentNavigationCourseBlock().clickTab(ContentNavigationCourseBlock.Tab.FREE_INTENSIVE)
+                .findIntensive("Интенсив “Веб-разработка для начинающих”");
+
+    }
 }

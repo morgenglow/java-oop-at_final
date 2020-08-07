@@ -23,39 +23,27 @@ public class ContentNavigationCourseBlock extends BasePageObject {
 
     public ContentNavigationCourseBlock(WebDriver driver) {
         super(driver);
-        //TODO вынести в наследование
-        PageFactory.initElements(driver, this);
     }
 
-    //TODO Step
+
     public CoursePage clickTab(Tab tab) {
         switch (tab) {
             case PROFESSIONS: {
                 tabProfessions.click();
-                //TODO нужно реализовать для данного блока
             }
             case FREE_INTENSIVE: {
                 tabFreeIntensive.click();
-                //TODO нужно реализовать для данного блока
             }
             case COURSES: {
                 tabCourses.click();
-
             }
             case COMPANIES: {
                 tabCompanies.click();
-                //TODO нужно реализовать для данного блока
             }
         }
         return new CoursePage(driver);
     }
 
-//    Enum —  класс. Список который имеет ограниченный, неизменяемый набор значений
-//    Он специально «заточен» на решение задач:
-//      создание некоторого ограниченного круга значений.
-
-//    В нашем случае позволяет определив в одном месте, использовать этот список везде в проекте.
-//    И не дать возможность пользователю допустить ошибку с названием кнопки
     public enum Tab {
         PROFESSIONS,
         FREE_INTENSIVE,
